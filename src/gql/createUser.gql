@@ -1,7 +1,12 @@
 mutation CreateUser($password: String!, $username: String!, $email: String!) {
   createUser(password: $password, username: $username, email: $email) {
-    id
-    username
-    createdAt
+    ... on User {
+      id
+      username
+      email
+    }
+    ... on BaseError {
+      message
+    }
   }
 }
