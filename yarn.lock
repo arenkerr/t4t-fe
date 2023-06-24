@@ -2598,6 +2598,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.5.12.tgz#3d34ede8677a57e1d25e9b30d9e57d620592ca3d"
   integrity sha512-Li90TCJha1E+nBgP51GjcIGV6LxyQi7QisW8KZ4kpz5mpnQc1HmsJWVr9fyTMItUF/OuZUOfEazenXjaY6qRpQ==
 
+"@fontsource/shrikhand@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/shrikhand/-/shrikhand-5.0.3.tgz#1ce4202b36a685683d6d7fe431df53b5f8ccfec5"
+  integrity sha512-1qpGr7lNwMe3fapKaYTx8J8l2kaHguCXnMMuTESbLiomJ7zCatxit4csx+GTF16CAgXVPPHO//ZGuh/KT4UdLg==
+
 "@graphql-typed-document-node/core@^3.1.1":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.2.0.tgz#5f3d96ec6b2354ad6d8a28bf216a1d97b5426861"
