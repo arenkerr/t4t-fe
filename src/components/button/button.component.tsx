@@ -1,4 +1,3 @@
-import React from 'react';
 import MuiButton from '@mui/material/Button';
 
 interface ButtonProps {
@@ -22,7 +21,6 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <MuiButton variant={variant} size={size} {...props}>
-      {' '}
       {label}
     </MuiButton>
   );

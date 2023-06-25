@@ -2,9 +2,11 @@ import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
 import { darkMode, lightMode } from './theme/theme';
-import { Button } from './components/button/button.component';
 import { ThemeMode } from './types/theme.types';
 import { useThemeMode } from './hooks/useThemeMode';
+import { Button } from './components/button/button.component';
+import { Layout } from './components/layout/layout.component';
+import Home from './pages/home/home.page';
 
 const App = () => {
   const [mode, toggleMode] = useThemeMode();
@@ -12,7 +14,10 @@ const App = () => {
   return (
     <ThemeProvider theme={mode === ThemeMode.Dark ? darkMode : lightMode}>
       <CssBaseline />
-      <Button label="toggle theme mode" onClick={() => toggleMode()}></Button>
+      <Layout>
+        <Home />
+        <Button label="toggle theme mode" onClick={() => toggleMode()}></Button>
+      </Layout>
     </ThemeProvider>
   );
 };

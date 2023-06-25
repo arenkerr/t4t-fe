@@ -1,8 +1,8 @@
-import React from 'react';
 import Container from '@mui/material/Container';
 import { loader } from 'graphql.macro';
 import { useMutation } from '@apollo/client';
 import { Button } from '@mui/material';
+
 import { createErrorDisplay } from '../../util/error.util';
 
 const LogIn = () => {
