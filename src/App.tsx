@@ -1,14 +1,19 @@
-import React from 'react';
-import { Container } from '@mui/material';
-import LogIn from './pages/logIn/logIn.page';
-import SignUp from './pages/signUp/signUp.page';
+import { CssBaseline } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+
+import { darkMode, lightMode } from './theme/theme';
+import { Button } from './components/button/button.component';
+import { ThemeMode } from './types/theme.types';
+import { useThemeMode } from './hooks/useThemeMode';
 
 const App = () => {
+  const [mode, toggleMode] = useThemeMode();
+
   return (
-    <Container>
-      <SignUp />
-      <LogIn />
-    </Container>
+    <ThemeProvider theme={mode === ThemeMode.Dark ? darkMode : lightMode}>
+      <CssBaseline />
+      <Button label="toggle theme mode" onClick={() => toggleMode()}></Button>
+    </ThemeProvider>
   );
 };
 
