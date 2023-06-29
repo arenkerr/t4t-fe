@@ -3,6 +3,7 @@ import { ThemeMode } from '../types/theme.types';
 
 export const useThemeMode = (): [ThemeMode, () => void] => {
   const [mode, setMode] = useState(ThemeMode.Dark);
+  const selectedMode = window.localStorage.getItem('mode');
 
   const toggleMode = () => {
     const newMode = mode === ThemeMode.Dark ? ThemeMode.Light : ThemeMode.Dark;
@@ -11,11 +12,10 @@ export const useThemeMode = (): [ThemeMode, () => void] => {
   };
 
   useEffect(() => {
-    const selectedMode = window.localStorage.getItem('mode');
     setMode(
       selectedMode === ThemeMode.Light ? ThemeMode.Light : ThemeMode.Dark
     );
-  }, []);
+  });
 
   return [mode, toggleMode];
 };

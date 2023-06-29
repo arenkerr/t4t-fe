@@ -1,11 +1,16 @@
 import { Stack, Typography } from '@mui/material';
 
 import { Button } from '../../components/button/button.component';
-import { THEME_COLORS } from '../../theme/constants';
+import { THEME_COLORS } from '../../constants/theme.constants';
 
 const Home = () => {
   return (
-    <Stack spacing={2} justifyContent="center" textAlign="center">
+    <Stack
+      spacing={2}
+      justifyContent="center"
+      textAlign="center"
+      minHeight="70vh"
+    >
       <Typography variant="h1" gutterBottom={true}>
         t4t
       </Typography>

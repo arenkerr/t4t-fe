@@ -1,6 +1,6 @@
 import { ThemeOptions, createTheme } from '@mui/material';
 
-import { THEME_COLORS } from './constants';
+import { THEME_COLORS } from '../constants/theme.constants';
 
 const shared: ThemeOptions = {
   palette: {
@@ -9,6 +9,7 @@ const shared: ThemeOptions = {
     },
     secondary: {
       main: THEME_COLORS.BLUE_900,
+      dark: THEME_COLORS.BLUE_900,
     },
   },
   typography: {
@@ -20,6 +21,23 @@ const shared: ThemeOptions = {
     h6: {
       '@media (max-width:600px)': {
         fontSize: '1rem',
+      },
+    },
+  },
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundImage: 'none',
+          boxShadow: 'none',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontWeight: 'bold',
+        },
       },
     },
   },
@@ -44,6 +62,9 @@ const light: ThemeOptions = {
     background: {
       default: THEME_COLORS.PINK_50,
       paper: THEME_COLORS.BLUE_100,
+    },
+    text: {
+      primary: THEME_COLORS.BLUE_900,
     },
   },
 };
