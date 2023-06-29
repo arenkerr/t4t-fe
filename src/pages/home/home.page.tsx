@@ -1,9 +1,16 @@
 import { Stack, Typography } from '@mui/material';
 
+import { useState } from 'react';
+
 import { Button } from '../../components/button/button.component';
 import { THEME_COLORS } from '../../constants/theme.constants';
+import LogInModal from '../logInModal/logInModal.page';
 
 const Home = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Stack
       spacing={2}
@@ -27,7 +34,8 @@ const Home = () => {
         <Typography variant="h6">Resources</Typography>
       </Stack>
       <Button label="Sign Up" />
-      <Button label="Log In" variant="outlined" />
+      <Button label="Log In" variant="outlined" onClick={handleOpen} />
+      <LogInModal open={open} onClose={handleClose} />
     </Stack>
   );
 };

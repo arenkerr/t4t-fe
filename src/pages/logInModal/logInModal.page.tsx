@@ -1,11 +1,16 @@
-import Container from '@mui/material/Container';
 import { loader } from 'graphql.macro';
 import { useMutation } from '@apollo/client';
-import { Button } from '@mui/material';
 
 import { createErrorDisplay } from '../../util/error.util';
+import { Modal } from '../../components/modal/modal.component';
+import { Button } from '../../components/button/button.component';
 
-const LogIn = () => {
+interface LogInModalProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+const LogInModal = ({ open, onClose }: LogInModalProps) => {
   const logInMutation = loader('../../gql/login.gql');
   const [login, { loading, error, data }] = useMutation(logInMutation);
 
@@ -21,11 +26,11 @@ const LogIn = () => {
   if (loading) return <p>Loading</p>;
 
   return (
-    <Container>
-      <Button onClick={() => login(mock)}>Log In</Button>
+    <Modal open={open} onClose={onClose} title={'Log In'}>
+      <Button onClick={() => login(mock)} label="Log In" />
       {loginError && createErrorDisplay(loginError)}
-    </Container>
+    </Modal>
   );
 };
 
-export default LogIn;
+export default LogInModal;

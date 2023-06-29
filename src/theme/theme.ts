@@ -18,6 +18,9 @@ const shared: ThemeOptions = {
       fontFamily: 'shrikhand',
       color: THEME_COLORS.PINK_400,
     },
+    h4: {
+      fontFamily: 'shrikhand',
+    },
     h6: {
       '@media (max-width:600px)': {
         fontSize: '1rem',
