@@ -1,7 +1,8 @@
 mutation Login($username: String!, $password: String!) {
   login(username: $username, password: $password) {
-    ... on LoginToken {
-      token
+    ... on LoginData {
+      sessionId
+      userId
     }
     ... on BaseError {
       message

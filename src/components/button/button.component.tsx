@@ -6,7 +6,9 @@ interface ButtonProps {
    */
   variant?: 'contained' | 'outlined';
   size?: 'small' | 'medium' | 'large';
+  type?: 'submit' | 'reset' | 'button';
   label: string;
+  fullWidth?: boolean;
   onClick?: () => void;
 }
 
@@ -16,11 +18,12 @@ interface ButtonProps {
 export const Button = ({
   variant = 'contained',
   size = 'large',
+  fullWidth = true,
   label,
   ...props
 }: ButtonProps) => {
   return (
-    <MuiButton variant={variant} size={size} {...props}>
+    <MuiButton variant={variant} size={size} fullWidth={fullWidth} {...props}>
       {label}
     </MuiButton>
   );

@@ -5,7 +5,7 @@ import { THEME_COLORS } from '../constants/theme.constants';
 const shared: ThemeOptions = {
   palette: {
     primary: {
-      main: THEME_COLORS.PINK_400,
+      main: THEME_COLORS.PINK_500,
     },
     secondary: {
       main: THEME_COLORS.BLUE_900,
@@ -16,12 +16,13 @@ const shared: ThemeOptions = {
     fontFamily: ['Nunito', 'sans-serif'].join(','),
     h1: {
       fontFamily: 'shrikhand',
-      color: THEME_COLORS.PINK_400,
+      color: THEME_COLORS.PINK_500,
     },
     h4: {
       fontFamily: 'shrikhand',
     },
     h6: {
+      fontWeight: 'bold',
       '@media (max-width:600px)': {
         fontSize: '1rem',
       },
@@ -40,6 +41,20 @@ const shared: ThemeOptions = {
       styleOverrides: {
         root: {
           fontWeight: 'bold',
+          textTransform: 'capitalize',
+        },
+        sizeLarge: {
+          fontSize: '1.1725rem',
+        },
+        outlined: {
+          border: '2px solid',
+          borderColor: THEME_COLORS.PINK_500,
+          ':hover': {
+            border: '2px solid',
+            borderColor: THEME_COLORS.PINK_600,
+            color: THEME_COLORS.PINK_600,
+            background: 'none',
+          },
         },
       },
     },
@@ -55,6 +70,15 @@ const dark: ThemeOptions = {
     },
     text: {
       primary: THEME_COLORS.BLUE_50,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        contained: {
+          color: THEME_COLORS.BLUE_1000,
+        },
+      },
     },
   },
 };
