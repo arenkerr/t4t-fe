@@ -7,6 +7,14 @@ interface ButtonProps {
   variant?: 'contained' | 'outlined';
   size?: 'small' | 'medium' | 'large';
   type?: 'submit' | 'reset' | 'button';
+  color?:
+    | 'secondary'
+    | 'inherit'
+    | 'primary'
+    | 'success'
+    | 'error'
+    | 'info'
+    | 'warning';
   label: string;
   fullWidth?: boolean;
   onClick?: () => void;

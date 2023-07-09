@@ -44,7 +44,6 @@ const LogInModal = ({ open, onClose }: LogInModalProps) => {
           required
           label={'Username'}
         />
-
         <TextField
           id="login-input-password"
           name="password"
@@ -52,8 +51,7 @@ const LogInModal = ({ open, onClose }: LogInModalProps) => {
           required
           label={'Password'}
         />
-
-        <Button variant="outlined" type="submit" label="Log In" />
+        <Button type="submit" label="Log In" color="secondary" />
         <Typography color="error">
           {loginError && createErrorDisplay(loginError)}
         </Typography>

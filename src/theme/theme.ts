@@ -56,6 +56,32 @@ const shared: ThemeOptions = {
             background: 'none',
           },
         },
+        containedSecondary: {
+          color: THEME_COLORS.BLUE_50,
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          ':focus-within': {
+            borderWidth: 0,
+            outlineColor: THEME_COLORS.PINK_600,
+            outline: 2,
+            borderColor: THEME_COLORS.PINK_600,
+          },
+          fieldset: {
+            borderWidth: 2,
+            borderColor: THEME_COLORS.BLUE_900,
+          },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundImage: 'none',
+        },
       },
     },
   },
@@ -77,6 +103,13 @@ const dark: ThemeOptions = {
       styleOverrides: {
         contained: {
           color: THEME_COLORS.BLUE_1000,
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: THEME_COLORS.BLUE_50,
         },
       },
     },
