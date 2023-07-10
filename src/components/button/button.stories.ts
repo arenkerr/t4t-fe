@@ -23,3 +23,10 @@ export const Outlined: Story = {
     label: 'Button',
   },
 };
+
+export const Secondary: Story = {
+  args: {
+    label: 'Button',
+    color: 'secondary',
+  },
+};

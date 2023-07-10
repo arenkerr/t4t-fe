@@ -61,6 +61,15 @@ const shared: ThemeOptions = {
         },
       },
     },
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          width: '100%',
+          maxWidth: 400,
+          padding: 24,
+        },
+      },
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
@@ -95,7 +104,7 @@ const dark: ThemeOptions = {
       paper: THEME_COLORS.BLUE_800,
     },
     text: {
-      primary: THEME_COLORS.BLUE_50,
+      primary: THEME_COLORS.PINK_100,
     },
   },
   components: {
@@ -104,12 +113,32 @@ const dark: ThemeOptions = {
         contained: {
           color: THEME_COLORS.BLUE_1000,
         },
+        containedSecondary: {
+          color: THEME_COLORS.PINK_100,
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: THEME_COLORS.BLUE_900,
+        },
       },
     },
     MuiInputLabel: {
       styleOverrides: {
         root: {
           color: THEME_COLORS.BLUE_50,
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          fieldset: {
+            borderWidth: 2,
+            borderColor: THEME_COLORS.PINK_100,
+          },
         },
       },
     },
@@ -124,7 +153,23 @@ const light: ThemeOptions = {
       paper: THEME_COLORS.BLUE_100,
     },
     text: {
-      primary: THEME_COLORS.BLUE_900,
+      primary: THEME_COLORS.BLUE_800,
+    },
+  },
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: THEME_COLORS.BLUE_800,
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: THEME_COLORS.PINK_50,
+        },
+      },
     },
   },
 };

@@ -1,6 +1,7 @@
 const THEME_COLORS = {
   PINK_25: '#FFEFF7',
   PINK_50: '#FAE5EF',
+  PINK_100: '#ECBFD6',
   PINK_400: '#E9458B',
   PINK_500: '#D43C76',
   PINK_600: '#AF336A',
