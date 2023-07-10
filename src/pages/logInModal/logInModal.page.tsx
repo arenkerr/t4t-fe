@@ -37,7 +37,7 @@ const LogInModal = ({ open, onClose }: LogInModalProps) => {
 
   return (
     <Modal open={open} onClose={onClose} title={'Log In'}>
-      <Stack component="form" onSubmit={handleSubmit} spacing={2}>
+      <Stack component="form" onSubmit={handleSubmit} spacing={2} mt={2}>
         <TextField
           id="login-input-username"
           name="username"

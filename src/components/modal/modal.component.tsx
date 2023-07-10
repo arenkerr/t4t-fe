@@ -1,40 +1,67 @@
 import { ReactNode } from 'react';
-import MuiModal from '@mui/material/Modal';
-import { Container, Paper, Typography } from '@mui/material';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+import CloseIconRounded from '@mui/icons-material/CloseRounded';
 
 interface ModalProps {
   /**
    * Modal Content
    */
   children: ReactNode;
+  /**
+   * Toggle open or close
+   */
   open: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   title: string;
 }
-
-const modalStyle = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  p: 4,
-};
 
 /**
  * Modal
  */
 export const Modal = ({ children, open, onClose, title }: ModalProps) => {
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
-    <MuiModal open={open} onClose={onClose} aria-labelledby="modal-modal-title">
-      <Paper sx={modalStyle}>
-        <Container>
-          <Typography id="modal-modal-title" variant="h4" gutterBottom={true}>
-            {title}
-          </Typography>
-          {children}
-        </Container>
-      </Paper>
-    </MuiModal>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      fullScreen={fullScreen}
+      aria-labelledby="modal-modal-title"
+    >
+      <DialogTitle>
+        {onClose ? (
+          <IconButton
+            size="large"
+            aria-label="close"
+            onClick={onClose}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 8,
+            }}
+          >
+            <CloseIconRounded sx={{ fontSize: 54 }} color="primary" />
+          </IconButton>
+        ) : null}
+        <Typography
+          id="modal-modal-title"
+          variant="h4"
+          gutterBottom={true}
+          mt={4}
+        >
+          {title}
+        </Typography>
+      </DialogTitle>
+      <DialogContent>{children}</DialogContent>
+    </Dialog>
   );
 };
