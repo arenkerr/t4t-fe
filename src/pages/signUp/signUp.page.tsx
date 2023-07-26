@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 import { createErrorDisplay } from '../../util/error.util';
 
 const SignUp = () => {
-  const createUserMutation = loader('../../gql/createUser.gql');
+  const createUserMutation = loader('../../gql/user/createUser.gql');
   const [createUser, { loading, error, data }] =
     useMutation(createUserMutation);
 

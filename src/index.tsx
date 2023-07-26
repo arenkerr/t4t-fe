@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ApolloProvider } from '@apollo/client';
-
-import './index.css';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
 import client from './apollo';
+import { RouterProvider } from 'react-router-dom';
 
 import '@fontsource/nunito/300.css';
 import '@fontsource/nunito/400.css';
@@ -14,13 +10,17 @@ import '@fontsource/nunito/500.css';
 import '@fontsource/nunito/700.css';
 import '@fontsource/shrikhand/400.css';
 
+import { router } from './router';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <RouterProvider router={router} />
     </ApolloProvider>
   </React.StrictMode>
 );

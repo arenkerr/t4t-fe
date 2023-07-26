@@ -1,0 +1,15 @@
+query FindLoggedInUser {
+  findLoggedInUser {
+    ... on User {
+      bio
+      username
+      sessionId
+      email
+      createdAt
+      avatarUrl
+    }
+    ... on UnknownError {
+      message
+    }
+  }
+}

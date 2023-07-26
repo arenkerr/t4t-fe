@@ -1,0 +1,14 @@
+query FindUser($id: String!) {
+  findUser(id: $id) {
+    ... on User {
+      email
+      username
+      createdAt
+      bio
+      avatarUrl
+    }
+    ... on UnknownError {
+      message
+    }
+  }
+}

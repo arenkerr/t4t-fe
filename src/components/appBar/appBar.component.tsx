@@ -32,7 +32,7 @@ export const AppBar = () => {
           <IconButton
             size="large"
             edge="start"
-            sx={{ color: THEME_COLORS.PINK_50 }}
+            sx={{ color: THEME_COLORS.PINK_100 }}
             aria-label="menu"
             onClick={toggleMenu(true)}
           >
