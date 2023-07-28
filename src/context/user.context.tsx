@@ -1,6 +1,7 @@
-import { ReactNode, createContext } from 'react';
-import { useQuery } from '@apollo/client';
+import { ReactNode, createContext, useEffect } from 'react';
+import { ApolloError, useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
+import { useNavigate } from 'react-router-dom';
 
 import { User } from '../types/user.types';
 
@@ -10,16 +11,34 @@ interface UserProviderProps {
   children: ReactNode;
 }
 
-export const UserContext = createContext<User | null>(null);
+// export const UserContext = createContext<User | null>(null);
+export const UserContext = createContext<
+  | {
+      user: User;
+      loading: boolean;
+      error: ApolloError | undefined;
+    }
+  | Record<string, never>
+>({});
 
 export const UserProvider = ({ children }: UserProviderProps) => {
-  const { data, error, loading } = useQuery(findLoggedInUser);
+  const { data, loading, error } = useQuery(findLoggedInUser);
+  const navigate = useNavigate();
 
-  if (loading) return <>loading</>; // TODO: loader and error page
+  useEffect(() => {
+    if (!data?.findLoggedInUser) {
+      navigate('/');
+    }
+  }, [data]);
+
+  // TODO
   if (error) return <>oops</>;
+  if (loading) return <>loading</>;
 
   return (
-    <UserContext.Provider value={data.findLoggedInUser}>
+    <UserContext.Provider
+      value={{ user: data.findLoggedInUser, loading, error }}
+    >
       {children}
     </UserContext.Provider>
   );
