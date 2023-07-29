@@ -1,5 +1,5 @@
 import { loader } from 'graphql.macro';
-import { useMutation } from '@apollo/client';
+import { useApolloClient, useMutation } from '@apollo/client';
 import { Stack, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,6 +17,7 @@ interface LogInModalProps {
 const LogInModal = ({ open, onClose }: LogInModalProps) => {
   const [login, { loading, error, data }] = useMutation(logInMutation);
   const navigate = useNavigate();
+  const client = useApolloClient();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,6 +33,7 @@ const LogInModal = ({ open, onClose }: LogInModalProps) => {
     const result = await login(payload);
 
     if (result.data.login.userId) {
+      client.resetStore();
       onClose();
       navigate('/dashboard');
     }

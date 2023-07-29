@@ -1,6 +1,7 @@
 query FindLoggedInUser {
   findLoggedInUser {
     ... on User {
+      id
       bio
       username
       sessionId

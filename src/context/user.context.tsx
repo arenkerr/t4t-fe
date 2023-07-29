@@ -11,7 +11,6 @@ interface UserProviderProps {
   children: ReactNode;
 }
 
-// export const UserContext = createContext<User | null>(null);
 export const UserContext = createContext<
   | {
       user: User;
@@ -24,9 +23,10 @@ export const UserContext = createContext<
 export const UserProvider = ({ children }: UserProviderProps) => {
   const { data, loading, error } = useQuery(findLoggedInUser);
   const navigate = useNavigate();
+  const user = data?.findLoggedInUser;
 
   useEffect(() => {
-    if (!data?.findLoggedInUser) {
+    if (!loading && !user) {
       navigate('/');
     }
   }, [data]);
@@ -36,9 +36,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   if (loading) return <>loading</>;
 
   return (
-    <UserContext.Provider
-      value={{ user: data.findLoggedInUser, loading, error }}
-    >
+    <UserContext.Provider value={{ user, loading, error }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,6 +1,7 @@
 query FindUser($id: String!) {
   findUser(id: $id) {
     ... on User {
+      id
       email
       username
       createdAt
