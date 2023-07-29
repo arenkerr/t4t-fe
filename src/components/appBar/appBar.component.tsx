@@ -1,15 +1,18 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { IconButton, Toolbar } from '@mui/material';
 
 import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Menu } from '../menu/menu.component';
 import { THEME_COLORS } from '../../constants/theme.constants';
+import { UserContext } from '../../context/user.context';
 
 /**
  * AppBar
  */
 export const AppBar = () => {
+  const { user } = useContext(UserContext);
+
   const [open, setOpen] = useState(false);
 
   const toggleMenu =
@@ -40,7 +43,7 @@ export const AppBar = () => {
           </IconButton>
         </Toolbar>
       </MuiAppBar>
-      <Menu loggedIn={false} open={open} toggleMenu={toggleMenu} />
+      <Menu loggedIn={!!user} open={open} toggleMenu={toggleMenu} />
     </>
   );
 };

@@ -7,8 +7,45 @@ import {
   ListItemText,
   Divider,
   SwipeableDrawer,
+  Typography,
 } from '@mui/material';
 import { THEME_COLORS } from '../../constants/theme.constants';
+import { RouterLink } from '../routerLink/routerLink.component';
+import { ReactNode } from 'react';
+import { authLinks, publicLinks } from './menuLinks';
+
+interface MenuLinkProps {
+  to: string;
+  label: string;
+  icon?: ReactNode;
+  onClick?: () => void;
+}
+
+const MenuLink = ({ to, label, icon, onClick }: MenuLinkProps) => {
+  return (
+    <>
+      <ListItem disablePadding onClick={onClick}>
+        <ListItemButton>
+          <ListItemIcon>
+            <Typography color="primary">{icon}</Typography>
+          </ListItemIcon>
+          <ListItemText
+            disableTypography={true}
+            primary={
+              <RouterLink
+                to={to}
+                label={label}
+                variant={'h6'}
+                color={THEME_COLORS.PINK_100}
+                underline={'none'}
+              />
+            }
+          />
+        </ListItemButton>
+      </ListItem>
+    </>
+  );
+};
 
 interface MenuListProps {
   loggedIn: boolean;
@@ -32,22 +69,12 @@ const MenuList = ({ loggedIn, toggleMenu }: MenuListProps) => {
       }}
     >
       <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>{/* icon */}</ListItemIcon>
-            <ListItemText primary={'text'} />
-          </ListItemButton>
-        </ListItem>
+        {loggedIn
+          ? authLinks.map((link) => <MenuLink key={link.label} {...link} />)
+          : publicLinks.map((link) => <MenuLink key={link.label} {...link} />)}
       </List>
+
       <Divider />
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>{/* icon */}</ListItemIcon>
-            <ListItemText primary={'text'} />
-          </ListItemButton>
-        </ListItem>
-      </List>
     </Box>
   );
 };
